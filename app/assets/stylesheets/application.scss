@@ -1,0 +1,30 @@
+/* app/assets/stylesheets/application.css */
+@import 'bootstrap';
+.card {
+  border: 1px solid #ddd; /* Bordure légère autour de la carte */
+  border-radius: 8px;     /* Coins arrondis */
+  overflow: hidden;       /* Pour s'assurer que les coins arrondis fonctionnent correctement */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Effet au survol */
+}
+
+.card-img-top {
+  border-bottom: 1px solid #ddd; /* Bordure entre l'image et le contenu */
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Légère élévation au survol */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre portée */
+}
+
+.card-title a {
+  text-decoration: none; /* Supprime le soulignement des liens */
+  color: #333;           /* Couleur du texte du lien */
+}
+
+.card-title a:hover {
+  color: #007bff;        /* Couleur du lien au survol */
+}
+body {
+  background: url('background.jpeg') no-repeat center center fixed;
+  background-size: cover;
+}
