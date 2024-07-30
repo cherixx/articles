@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Show Article</title>
+</head>
+<body>
+  <h1><%= @article.title %></h1>
+  <p><%= @article.content %></p>
+
+  <h2>Comments</h2>
+
+  <%= render @article.comments %>
+
+  <h3>Add a Comment</h3>
+  <%= form_with(model: [@article, @article.comments.build], local: true) do |form| %>
+    <% if @article.comments.any? && @article.comments.last.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@article.comments.last.errors.count, "error") %> prohibited this comment from being saved:</h2>
+        <ul>
+          <% @article.comments.last.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :content %>
+      <%= form.text_area :content %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "Add Comment" %>
+    </div>
+  <% end %>
+
+  <%= link_to 'Back', articles_path %>
+</body>
+</html>
